@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://xfan6lrf8u66"]
+[gd_scene load_steps=4 format=3 uid="uid://xfan6lrf8u66"]
 
+[ext_resource type="Script" path="res://bullet.gd" id="1_urgga"]
 [ext_resource type="Texture2D" uid="uid://blax6nqwbt3nw" path="res://art/Projectiles/Player_charged_beam (16 x 16).png" id="1_w7j0x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n1rxk"]
 size = Vector2(12, 12)
 
 [node name="Bullet" type="Area2D"]
+script = ExtResource("1_urgga")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_w7j0x")
@@ -15,3 +17,6 @@ hframes = 2
 shape = SubResource("RectangleShape2D_n1rxk")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
