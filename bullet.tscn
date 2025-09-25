@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://xfan6lrf8u66"]
+
+[ext_resource type="Texture2D" uid="uid://blax6nqwbt3nw" path="res://art/Projectiles/Player_charged_beam (16 x 16).png" id="1_w7j0x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1rxk"]
+size = Vector2(12, 12)
+
+[node name="Bullet" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w7j0x")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n1rxk")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
